@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class HighScore : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ScoreCounter score;
+    [SerializeField] private HighScoreData highScoreData;
+    [SerializeField] private int sizeHighScoreData;
 
-    // Update is called once per frame
-    void Update()
+
+    public void AddScore()
     {
-        
+        highScoreData.Add((int)score.Score);
+        highScoreData.Sort();
+        highScoreData.RemoveRange(sizeHighScoreData);
     }
 }
